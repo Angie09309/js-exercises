@@ -34,3 +34,40 @@ class ProductPerishable extends Product {
 const product2 = new ProductPerishable("Leche", 20, "Lácteos", "2025-01-10");
 console.log(product2.showInfo()); // Información del producto
 console.log(product2.isOverdue() ? "Producto vencido" : `Producto ${product2.name} no esta vencido`); // Verifica caducidad
+
+
+class Store {
+    constructor() {
+        this.products = [];
+    }
+
+    addProduct(product) {
+        this.products.push(product); // Agregar producto al arreglo
+    }
+
+    showProducts() {
+        if (this.products.length === 0) {
+            console.log("La tienda no tiene productos.");
+        } else {
+            this.products.forEach((product, index) => {
+                console.log(`${index + 1}. ${product.showInfo()}`); // Muestra información
+            });
+        }
+    }
+
+    static calculateAveragePrice(products) {
+        if (products.length === 0) return 0; // Si no hay productos, el promedio es 0
+        const totalPrice = products.reduce((sum, product) => sum + product.price, 0);
+        return totalPrice / products.length;
+    }
+    
+
+}
+
+const myStore = new Store();
+myStore.addProduct(product1);
+myStore.addProduct(product2);
+myStore.showProducts();
+
+const avgPrice = Store.calculateAveragePrice(myStore.products);
+console.log(`El precio promedio es: $${avgPrice.toFixed(2)}`);
