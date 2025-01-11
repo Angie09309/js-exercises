@@ -11,10 +11,16 @@ function addTask() {
         return;
     }
 
+
     const listItem = document.createElement('li'); // Crea un elemento <li>
     listItem.textContent = taskText;  // Añade texto al <li>
     taskList.appendChild(listItem);// Inserta el <li> en la lista
     taskInput.value = ''; // Limpia el campo de texto
+
+    const deleteButton = document.createElement('button'); // Botón de eliminar
+    deleteButton.textContent = 'Eliminar';
+    deleteButton.addEventListener('click', () => listItem.remove());
+    listItem.appendChild(deleteButton);
 }
 
 // Escucha el clic en el botón y llama a la función addTask
