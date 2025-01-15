@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //1) Programa una función que cuente el número de caracteres de una cadena de texto
+        let cuentaCadena = "Hola, mundo";
+        console.log(cuentaCadena.length);
+
+        //2) Programa una función que te devuelva el texto recortado según el número de caracteres indicados,
+        function recortarTexto(texto, numCaracteres) {
+            if (typeof texto !== "string" || texto.length === 0) {
+                return "Error: Ingresa un texto válido.";
+            }
+
+            if (typeof numCaracteres !== "number" || numCaracteres <= 0) {
+                return "Error: El número de caracteres debe ser un valor positivo.";
+            }
+            return texto.slice(0, numCaracteres);
+
+        }
+
+        console.log(recortarTexto("Hola Mundo", 4));
+        console.log(recortarTexto("JavaScript es genial", 10));
+
+
+        //3) Programa una función que dada una String te devuelva un Array de textos separados
+        function dividirTexto(texto, separador) {
+            if (typeof texto !== "string" || texto.length === 0) {
+                return "Error: Ingresa un texto válido.";
+            }
+            if (typeof separador !== "string") {
+                return "Error: El separador debe ser una cadena.";
+            }
+            return texto.split(separador);
+        }
+
+
+        console.log(dividirTexto('hola que tal', ' '));
+        console.log(dividirTexto('apple,banana,cherry', ','));
+
+
+
+        //4) Programa una función que repita un texto X veces
+        function miFuncion(texto, repeticiones) {
+            let resultado = '';
+
+            for (let i = 0; i < repeticiones; i++) {
+                resultado += texto;
+                if (i < repeticiones - 1) {
+                    resultado += ' ';
+                }
+            }
+
+            return resultado;
+
+        }
+        console.log(miFuncion('Hola Mundo', 3));
+
+    </script>
+</body>
+
+</html>
