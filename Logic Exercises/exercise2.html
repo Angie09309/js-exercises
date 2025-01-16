@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //Función que obtenga un numero aleatorio entre 501 y 600.
+        const aleatorio = () => console.info(Math.round(Math.random() * 100) + 500);
+        aleatorio();
+
+
+
+        //función que reciba un número y evalúe si es capicúa o no
+        const capicua = (numero = 0) => {
+            if (!numero) return console.warn("No ingresaste un nuemro");
+
+            if (typeof numero !== "number") return console.error(`El valor ${numero} ingresado, No es un numero`);
+
+            numero = numero.toString();
+
+            let alReves = numero.split("").reverse().join("");
+            return ((numero) === alReves)
+                ? console.info(`Si es capicua, Numero original ${numero}, Numero al reves ${alReves}`)
+                : console.info(`No es capicua, Numero original ${numero}, Numero al reves ${alReves}`)
+        }
+
+        // capicua();
+        // capicua((19));
+        // capicua("30");
+        // capicua(2002);
+
+
+
+        //una función que calcule el factorial de un número
+        const factorial = (number = undefined) => {
+            if (number === undefined) return console.warn("No ingresaste un numero");
+
+            if (typeof number !== "number") return console.error(`El valor ${number} ingresado, No es un numero`);
+
+            if (number === 0) return console.error(`El numero no puede ser 0`);
+
+            if (Math.sign(number) === -1) return console.error(`El numero no puede ser negativo`);
+
+            let factorial = 1;
+            for (let i = number; i > 1; i--) {
+                factorial = factorial * i;
+            }
+
+            return console.info(`El factorial de ${number} es ${factorial}`)
+
+        }
+        factorial();
+        factorial("5");
+        factorial(8);
+
+    </script>
+</body>
+
+</html>
