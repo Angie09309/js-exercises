@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        const numeroPrimo = (number = undefined) => {
+            if (number === undefined) return console.warn("No ingresaste un numero");
+
+            if (typeof number !== "number") return console.error(`El valor ${number} ingresado, No es un numero`);
+
+            if (number === 0) return console.error(`El numero no puede ser 0`);
+
+            if (number === 1) return console.error(`El numero no puede ser 1`);
+
+            if (Math.sign(number) === -1) return console.error(`El numero no puede ser negativo`);
+
+            let divisible = false;
+
+            for (let i = 2; i < number; i++) {
+                if ((number & i) === 0) {
+                    divisible = true;
+                    break;
+
+                }
+
+            }
+
+            return (divisible)
+                ? console.log(`El numero ${number}, Si es primo`)
+                : console.log(`El numero ${number}, no es primo`)
+        }
+
+        numeroPrimo()
+        numeroPrimo("230")
+        numeroPrimo("230")
+        numeroPrimo(2)
+        numeroPrimo(13)
+        numeroPrimo(13)
+        numeroPrimo(200)
+    </script>
+</body>
+
+</html>
