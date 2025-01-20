@@ -55,14 +55,48 @@
 
             if (typeof numero !== "number") return console.error(`El valor ${numero} ingresado, No es un numero`);
 
-            return(numero % 2 === 0)
-            ?console.info(`El numero ${numero} es Par`)
-            :console.info(`El numero ${numero} es Impar`)
+            return (numero % 2 === 0)
+                ? console.info(`El numero ${numero} es Par`)
+                : console.info(`El numero ${numero} es Impar`)
         }
 
-        numerParImpar();
-        numerParImpar(9);
-        numerParImpar(8);
+        // numerParImpar();
+        // numerParImpar(9);
+        // numerParImpar(8);
+
+
+        //función para convertir grados Celsius a Fahrenheit y viceversa
+        const convertirGrados = (grados = undefined, unidad = undefined) => {
+
+            if (grados === undefined) return console.warn("No ingresaste grados a convertit");
+
+            if (typeof grados !== "number") return console.error(`El valor "${grados}" ingresados, NO es un numero`);
+
+            if (unidad === undefined) return console.warn("No ingresaste el tipo de grados a convertit");
+
+            if (typeof unidad !== "string") return console.error(`El valor "${unidad}" ingresados, NO es un cadena de texto`);
+
+            if (unidad.length !== 1 || !/(C|F)/.test(unidad)) return console.warn("Valor de unidad no reconocido");
+
+            if (unidad === "C") {
+                return console.info(`${grados}°C = ${Math.round((grados * (9 / 5) + 32))}°F`);
+            } else if (unidad === "F") {
+                return console.info(`${grados}°F = ${Math.round(((grados - 32) * (9 / 5)))}°C`);
+            } else {
+                return console.error("El tipo de grados a convertir No es valido");
+            }
+
+            console.info("FUNCIONO");
+        }
+
+        convertirGrados();
+        convertirGrados("2");
+        convertirGrados(3);
+        convertirGrados(2, true);
+        convertirGrados(2, "Hola");
+        convertirGrados(2, "b");
+        convertirGrados(100, "C");
+        convertirGrados(32, "F");
 
     </script>
 </body>
