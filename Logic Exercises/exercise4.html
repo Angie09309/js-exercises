@@ -27,15 +27,47 @@
                 console.error("El tipo de base a convertit No es valido ")
             }
         }
-        convertiBinarioDecimal();
-        convertiBinarioDecimal("2");
-        convertiBinarioDecimal(100);
-        convertiBinarioDecimal(100, "2");
-        convertiBinarioDecimal(100, 2);
-        convertiBinarioDecimal(101, 2);
-        convertiBinarioDecimal(4, 10);
-        convertiBinarioDecimal(114, 10);
-        convertiBinarioDecimal(114, 3); 
+        // convertiBinarioDecimal();
+        // convertiBinarioDecimal("2");
+        // convertiBinarioDecimal(100);
+        // convertiBinarioDecimal(100, "2");
+        // convertiBinarioDecimal(100, 2);
+        // convertiBinarioDecimal(101, 2);
+        // convertiBinarioDecimal(4, 10);
+        // convertiBinarioDecimal(114, 10);
+        // convertiBinarioDecimal(114, 3); 
+
+
+
+
+        // función que devuelva el monto final después de aplicar un descuento a una cantidad dada
+        const aplicarDescuento = (monto = undefined, descuento = 0) => {
+            if (monto === undefined) return console.warn("No ingresate el monto");
+
+            if (typeof monto !== "number") return console.error(`El valor ${monto} ingresado, No es un numero`);
+
+            if (monto === 0) return console.error("El monto no puede ser 0");
+
+            if (Math.sign(monto) === -1) return console.error("El monto no puede ser negativo");
+
+            if (typeof descuento !== "number") return console.error(`El valor ${descuento} ingresado, No es un numero`);
+
+            if (Math.sign(descuento) === -1) return console.error("El descuento no puede ser negativo");
+
+            return console.info(`${monto} - ${descuento}% = ${monto - (monto * descuento) / 100}`)
+
+        }
+
+        aplicarDescuento();
+        aplicarDescuento("2");
+        aplicarDescuento(0);
+        aplicarDescuento(-1000);
+        aplicarDescuento(100, "30");
+        aplicarDescuento(100, -30);
+        aplicarDescuento(100);
+        aplicarDescuento(1000, 30);
+
+
     </script>
 </body>
 
