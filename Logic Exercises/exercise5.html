@@ -34,11 +34,30 @@
             })
         }
 
-        contarLetras();
-        contarLetras(3);
-        contarLetras("Hola mundo");
-        contarLetras("ñoño");
-        
+        // contarLetras();
+        // contarLetras(3);
+        // contarLetras("Hola mundo");
+        // contarLetras("ñoño");
+
+
+
+        const validarNombre = (nombre = "") => {
+            if (!nombre) return console.warn("No ingresaste un nombre");
+
+            if (typeof nombre !== "string") return console.error(`El valor ${nombre} ingresado, No es una cadena de texto`);
+
+            let expReg = /^[A-Za-zÑñáéíóú\s]+$/g.test(nombre);
+
+            return (expReg)
+                ? console.info(`${nombre}, es un nombre valido`)
+                : console.info(`${nombre}, No un nombre valido`)
+        }
+
+
+        validarNombre();
+        validarNombre(3);
+        validarNombre("Angie Paola");
+
     </script>
 </body>
 
