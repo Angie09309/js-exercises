@@ -77,12 +77,41 @@
                 : console.info(`${email}, No un email valido`)
         }
 
-validarEmail();
-validarEmail(87);
-validarEmail("ngie,13,@gmail.");
-validarEmail("angiepbg13@gmail.com");
+        // validarEmail();
+        // validarEmail(87);
+        // validarEmail("ngie,13,@gmail.");
+        // validarEmail("angiepbg13@gmail.com");
 
 
+
+
+        //fusion 19 y 20
+
+        const validarPatron = (cadena = "", patron = undefined) => {
+            if (!cadena) return console.warn("No ingresaste una cadena de texto a evaluar");
+
+            if (typeof cadena !== "string") return console.error(`El valor ${cadena} ingresado, No es una cadena de texto`);
+
+            if (patron === undefined) return console.warn("No ingresaste una patron a evaluar");
+
+            if (!(patron instanceof RegExp)) return console.error(`El valor ${patron} ingresado, No es una expresion regular`);
+
+            let expReg = patron.test(cadena);
+
+            return (expReg)
+                ? console.info(`${cadena}, cumple con el patron ingresado `)
+                : console.info(`${cadena}, No cumple con el patron ingresado `)
+        }
+        validarPatron();
+        validarPatron({});
+        validarPatron("hola");
+        validarPatron("hola", "mundo");
+        validarPatron("Angie Paola 21", /^[A-Za-zÑñáéíóú\s]+$/g);
+        validarPatron("Angie Paola", /^[A-Za-zÑñáéíóú\s]+$/g);
+        validarPatron("Angie Paola", /^[A-Za-zÑñáéíóú\s]+$/g);
+        validarPatron("angiepbg13@gmail.com", /[a-z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,15})/i);
+        validarPatron("angiepbg13@gmail.com", new RegExp("/[a-z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,15})/", "i"));
+        
     </script>
 </body>
 
