@@ -41,6 +41,8 @@
 
 
 
+
+        //función que valide que un texto sea un nombre válido
         const validarNombre = (nombre = "") => {
             if (!nombre) return console.warn("No ingresaste un nombre");
 
@@ -54,9 +56,32 @@
         }
 
 
-        validarNombre();
-        validarNombre(3);
-        validarNombre("Angie Paola");
+        // validarNombre();
+        // validarNombre(3);
+        // validarNombre("Angie Paola");
+
+
+
+
+
+        //  función que valide que un texto sea un email válido
+        const validarEmail = (email = "") => {
+            if (!email) return console.warn("No ingresaste un email");
+
+            if (typeof email !== "string") return console.error(`El valor ${email} ingresado, No es una cadena de texto`);
+
+            let expReg = /[a-z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,15})/i.test(email);
+
+            return (expReg)
+                ? console.info(`${email}, es un email valido`)
+                : console.info(`${email}, No un email valido`)
+        }
+
+validarEmail();
+validarEmail(87);
+validarEmail("ngie,13,@gmail.");
+validarEmail("angiepbg13@gmail.com");
+
 
     </script>
 </body>
