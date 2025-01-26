@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const devolverCuadrados = (arr = undefined) => {
+            if (arr === undefined) return console.warn("No ingresaste un arreglo de numeros");
+
+
+            if (!(arr instanceof Array)) return console.error("El valor ingresado no es un arreglo");
+
+            if (arr.length === 0) return console.error("El arreglo esta vacio");
+
+
+            for (let num of arr) {
+                if (typeof num !== "number") return console.error(`El valor ${num} ingresado, No es un numero`);
+            }
+
+            const newArr = arr.map(el => el * el);
+
+            return console.info(`Arreglo original: ${arr},\nArreglo elevado al cuadradro: ${newArr}`);
+        }
+
+        devolverCuadrados();
+        devolverCuadrados(true);
+        devolverCuadrados({});
+        devolverCuadrados([]);
+        devolverCuadrados([1, "3", 4 ]);
+        devolverCuadrados([1, 4, {}]);
+        devolverCuadrados([1, 4, 8]);
+        devolverCuadrados([1, 2, 3 ]);
+    </script>
+</body>
+
+</html>
