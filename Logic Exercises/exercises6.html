@@ -9,6 +9,7 @@
 
 <body>
     <script>
+        //función que dado un array numérico devuelve otro array con los números elevados al cuadrado
         const devolverCuadrados = (arr = undefined) => {
             if (arr === undefined) return console.warn("No ingresaste un arreglo de numeros");
 
@@ -27,14 +28,42 @@
             return console.info(`Arreglo original: ${arr},\nArreglo elevado al cuadradro: ${newArr}`);
         }
 
-        devolverCuadrados();
-        devolverCuadrados(true);
-        devolverCuadrados({});
-        devolverCuadrados([]);
-        devolverCuadrados([1, "3", 4 ]);
-        devolverCuadrados([1, 4, {}]);
-        devolverCuadrados([1, 4, 8]);
-        devolverCuadrados([1, 2, 3 ]);
+        // devolverCuadrados();
+        // devolverCuadrados(true);
+        // devolverCuadrados({});
+        // devolverCuadrados([]);
+        // devolverCuadrados([1, "3", 4 ]);
+        // devolverCuadrados([1, 4, {}]);
+        // devolverCuadrados([1, 4, 8]);
+        // devolverCuadrados([1, 2, 3 ]);
+
+
+
+
+        //función que dado un array devuelva el número mas alto y el más bajo de dicho array
+        const arrayMinMax = (arr = undefined) => {
+
+            if (arr === undefined) return console.warn("No ingresaste un arreglo de numeros");
+
+
+            if (!(arr instanceof Array)) return console.error("El valor ingresado no es un arreglo");
+
+            if (arr.length === 0) return console.error("El arreglo esta vacio");
+
+
+            for (let num of arr) {
+                if (typeof num !== "number") return console.error(`El valor ${num} ingresado, No es un numero`);
+            }
+
+            return console.info(`Arreglo original: ${arr}\n Valor mayor: ${Math.max(...arr)},\nValor menor: ${Math.min(...arr)}`)
+
+        }
+
+        arrayMinMax();
+        arrayMinMax(false);
+        arrayMinMax([]);
+        arrayMinMax([2, 3, true]);
+        arrayMinMax([2, 3, 5, 99, -60]);
     </script>
 </body>
 
