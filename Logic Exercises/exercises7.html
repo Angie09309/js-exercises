@@ -31,13 +31,46 @@
             })
         }
 
-        ordenarArreglo();
-        ordenarArreglo("hola");
-        ordenarArreglo([]);
-        ordenarArreglo([2, 8, "A"]);
-        ordenarArreglo([2, 3, 4, 5, 7, 8, 7, 0]);
+        // ordenarArreglo();
+        // ordenarArreglo("hola");
+        // ordenarArreglo([]);
+        // ordenarArreglo([2, 8, "A"]);
+        // ordenarArreglo([2, 3, 4, 5, 7, 8, 7, 0]);
+
+
+
+
+        //función que dado un arreglo de elementos, elimine los duplicados
+
+        const quitarDuplicados = (arr = undefined) => {
+            if (arr === undefined) return console.warn("No ingresaste un arreglo de numeros");
+
+
+            if (!(arr instanceof Array)) return console.error("El valor ingresado no es un arreglo");
+
+            if (arr.length === 0) return console.error("El arreglo esta vacio");
+
+            if (arr.length === 1) return console.error("El arreglo debe tener 2 elementos ");
+
+            // return console.info({
+            //     origin: arr,
+            //     sinDuplicados: arr.filter((value, index, self) => self.indexOf(value) === index)
+            // })
+
+            return console.info({
+                origin: arr,
+                sinDuplicados: [...new Set(arr)]
+            })
+
+
+        }
+        quitarDuplicados();
+        quitarDuplicados({});
+        quitarDuplicados([]);
+        quitarDuplicados([3]);
+        quitarDuplicados([3, "x", 10, "x", 2, "10", 10, true, true]);
     </script>
-    
+
 </body>
 
 </html>
