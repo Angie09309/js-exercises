@@ -13,6 +13,15 @@ class Pelicula {
         this.validarDirector(director);
         this.validarEstreno(estreno);
         this.validarPais(pais);
+        this.validarGeneros(generos);
+    }
+
+    static get listaGeneros() {
+        return ["Action", "Adult", "Adventure", "Animation", "Biography", "Comedy", "Crime", "Documentary", "Drama", "Family", "Fantasy", "Film Noir", "Game-Show", "History", "Horror", "Musical", "Music", "Mystery", "News", "Reality-TV", "Romance", "Sci-Fi", "Short", "Sport", "Talk-Show", "Thriller", "War", "Western"];
+    }
+
+    static generosAceptados() {
+        return console.info(`Los generos aceptados son: ${Pelicula.listaGeneros.join(",")}`);
     }
 
     validarCadena(propiedad, valor) {
@@ -81,14 +90,27 @@ class Pelicula {
     validarPais(pais) {
         this.validarArreglo("Pais", pais)
     }
+
+    validarGeneros(generos) {
+        if (this.validarArreglo("Generos", generos)) {
+            for (let genero of generos) {
+                //console.log(genero, Pelicula.listaGeneros.includes(genero));
+                if (!Pelicula.listaGeneros.includes(genero)) {
+                    console.error(`Genero(s) incorrectos ${generos.join(",")}`);
+                    Pelicula.generosAceptados();
+                }
+            }
+        }
+    }
 }
 
-
+// Pelicula.generosAceptados();
 const peli = new Pelicula({
     id: "tt1234567",
     titulo: "Titulo de la peli",
     director: "Director de la peli",
     estreno: 2021,
-    pais:["Mexico", "Francia"]
+    pais: ["Mexico", "Francia"],
+    generos: ["comedia"]
 
 });
