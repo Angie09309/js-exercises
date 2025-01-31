@@ -14,6 +14,7 @@ class Pelicula {
         this.validarEstreno(estreno);
         this.validarPais(pais);
         this.validarGeneros(generos);
+        this.validarCalificacion(calificacion);
     }
 
     static get listaGeneros() {
@@ -102,7 +103,20 @@ class Pelicula {
             }
         }
     }
+
+    validarCalificacion(calificacion) {
+        if (this.validarNumero("Calificacion", calificacion))
+            return (calificacion < 0 || calificacion > 10)
+                ? console.error("La calificacion tiene que estar en un rengo entre 0 y 10.")
+                : this.calificacion = calificacion.toFixed(1);
+    }
+
+
+    fichaTecnica() {
+        console.info(`Ficha Tecnica:\nTitulo:${this.titulo}\nDirector:${this.director}\nAño:${this.estreno}\nPais:${this.pais.join("-")}\nGeneros:${this.generos.join(",")}\nCalificacion:${this.calificacion}\nIMDB id:${this.id}`)
+    }
 }
+
 
 // Pelicula.generosAceptados();
 const peli = new Pelicula({
@@ -111,6 +125,44 @@ const peli = new Pelicula({
     director: "Director de la peli",
     estreno: 2021,
     pais: ["Mexico", "Francia"],
-    generos: ["comedia"]
+    generos: ["Comedy"],
+    calificacion: 7.567
 
 });
+
+peli.fichaTecnica();
+
+const misPelis = [
+    {
+        id: "tt1234567",
+        titulo: "Inception",
+        director: "Christopher Nolan",
+        estreno: 2010,
+        pais: ["Estados Unidos", "Reino Unido"],
+        generos: ["Action", "Sci-Fi", "Thriller"],
+        calificacion: 8.8
+
+    },
+
+    {
+        id: "tt7654321",
+        titulo: "Parasite",
+        director: "Bong Joon-ho",
+        estreno: 2019,
+        pais: ["Corea del Sur"],
+        generos: ["Comedy", "Drama", "Thriller"],
+        calificacion: 8.6
+    },
+
+    {
+        id: "tt2345678",
+        titulo: "The Godfather",
+        director: "Francis Ford Coppola",
+        estreno: 1972,
+        pais: ["Estados Unidos"],
+        generos: ["Crime", "Drama"],
+        calificacion: 9.2
+    }
+];
+
+misPelis.forEach(el => new Pelicula(el).fichaTecnica());
