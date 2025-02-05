@@ -83,7 +83,7 @@
 
         set2.clear();
         console.log(set2);
-        */
+        
 
         const mapa = new Map();
         mapa.set("nombre", "Ana");
@@ -122,6 +122,39 @@
 
         console.log(llavesMapa2);
         console.log(valoresMapa2);
+        */
+
+        //const ws = new Set([1,2,3,4,5,true, false, false, {},{}, "hola","HOLA"]);
+
+        const ws = new WeakSet();
+        let valor1 = { "valor1": 1 };
+        let valor2 = { "valor2": 2 };
+        let valor3 = { "valor3": 3 };
+
+        ws.add(valor1);
+        ws.add(valor2);
+
+        console.log(ws);
+
+        console.log(ws.has(valor1));
+        console.log(ws.has(valor3));
+
+        ws.delete(valor2);
+        console.log(ws);
+
+        ws.add(valor2);
+        ws.add(valor3);
+        console.log(ws);
+
+        setInterval(() => console.log(ws), 1000);
+
+        setTimeout(() => {
+            valor1 = null;
+            valor2 = null;
+            valor3 = null;
+        }, 5000);
+
+
     </script>
 </body>
 
