@@ -42,7 +42,7 @@
              console.log(persona[propiedad]);
          }
  
-         console.log(Object.getOwnPropertySymbols(persona));*/
+         console.log(Object.getOwnPropertySymbols(persona));
 
         const set = new Set([1, 2, 3, 3, 4, 5, true, false, true, {}, {}, "hola", "HOLA"]);
 
@@ -83,6 +83,45 @@
 
         set2.clear();
         console.log(set2);
+        */
+
+        const mapa = new Map();
+        mapa.set("nombre", "Ana");
+        mapa.set("apellido", "Manzana");
+        mapa.set("edad", "21");
+
+        console.log(mapa);
+        console.log(mapa.size);
+        console.log(mapa.has("correo"));
+        console.log(mapa.has("nombre"));
+        console.log(mapa.get("nombre"));
+        mapa.set("nombre", "Annie");
+        console.log(mapa.get("nombre"));
+        mapa.delete("apellido")
+
+        mapa.set(19, "diecinueve");
+        mapa.set(false, "false");
+        mapa.set({}, {});
+        console.log(mapa);
+
+        for (let [key, value] of mapa) {
+            console.log(`Llave: ${key}, Valor: ${value}`);
+        }
+
+        const mapa2 = new Map([
+            ["nombre", "Lucas"],
+            ["edad", 15],
+            ["animal", "perro"],
+            [null, "nulo"],
+        ]);
+
+        console.log(mapa2);
+
+        const llavesMapa2 = [...mapa2.keys()];
+        const valoresMapa2 = [...mapa2.values()];
+
+        console.log(llavesMapa2);
+        console.log(valoresMapa2);
     </script>
 </body>
 
