@@ -152,7 +152,7 @@
             valor1 = null;
             valor2 = null;
             valor3 = null;
-        }, 5000);  */
+        }, 5000);  
 
 
 
@@ -193,6 +193,28 @@
             llave2 = null;
             llave3 = null;
         }, 5000);  
+        */
+
+        const iterable = new Map([["nombre", "angie"],["edad", 21]]);
+
+        const iterador = iterable[Symbol.iterator]();
+
+        console.log(iterable);
+        console.log(iterador);
+        // console.log(iterador.next());
+        // console.log(iterador.next());
+        // console.log(iterador.next());
+        // console.log(iterador.next());
+        // console.log(iterador.next());
+        // console.log(iterador.next());
+
+        let next = iterador.next();
+
+        while (!next.done) {
+            console.log(next.value);
+            next = iterador.next();
+        }
+
     </script>
 </body>
 
