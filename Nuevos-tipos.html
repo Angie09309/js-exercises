@@ -122,7 +122,7 @@
 
         console.log(llavesMapa2);
         console.log(valoresMapa2);
-        */
+        
 
         //const ws = new Set([1,2,3,4,5,true, false, false, {},{}, "hola","HOLA"]);
 
@@ -152,8 +152,68 @@
             valor1 = null;
             valor2 = null;
             valor3 = null;
-        }, 5000);
+        }, 5000);  
 
+
+
+        // const wm = new WeakMap([
+        //     ["nombre", "Lucas"],
+        //     ["edad", 7],
+        //     ["animal", "perro"],
+        //     [null, "nulo"]
+        // ]);
+
+        const wm = new WeakMap();
+        let llave1 = {};
+        let llave2 = {};
+        let llave3 = {};
+
+        wm.set(llave1, 1);
+        wm.set(llave2, 2);
+
+        console.log(wm.has(llave1));
+        console.log(wm.has(llave3));
+
+        console.log(wm.get(llave1));
+        console.log(wm.get(llave2));
+        console.log(wm.get(llave3));
+
+        wm.delete(llave2);
+        console.log(wm);
+
+        wm.set(llave1, 1);
+        wm.set(llave2, 2);
+        wm.set(llave3, 3);
+        console.log(wm);
+
+        setInterval(() => console.log(wm), 1000);
+
+        setTimeout(() => {
+            llave1 = null;
+            llave2 = null;
+            llave3 = null;
+        }, 5000);  
+        */
+
+        const iterable = new Map([["nombre", "angie"],["edad", 21]]);
+
+        const iterador = iterable[Symbol.iterator]();
+
+        console.log(iterable);
+        console.log(iterador);
+        // console.log(iterador.next());
+        // console.log(iterador.next());
+        // console.log(iterador.next());
+        // console.log(iterador.next());
+        // console.log(iterador.next());
+        // console.log(iterador.next());
+
+        let next = iterador.next();
+
+        while (!next.done) {
+            console.log(next.value);
+            next = iterador.next();
+        }
 
     </script>
 </body>
