@@ -214,7 +214,7 @@
             console.log(next.value);
             next = iterador.next();
         }
- */
+
 
 
 
@@ -265,6 +265,41 @@
         for (let y of gen) {
             console.log(y);
         }
+             */
+
+
+        const persona = {
+            nombre: "",
+            apellido: "",
+            edad: 0
+        }
+
+        const manejador = {
+            set(obj, prop, valor) {
+                if (Object.keys(obj).indexOf(prop) === -1) {
+                    return console.error(`La propiedad ${prop} no existe en objeto persona.`);
+                }
+
+                if (
+                    (prop === "nombre" | prop === "apellido") &&
+                    !(/^[A-Z a-z á-üñ\s]+$/g.test(valor))
+                ) {
+                    return console.error(`La propiedad ${prop} solo acepta letras y espacios en blanco`)
+                }
+
+                obj[prop] = valor;
+            }
+        }
+
+        const Ana = new Proxy(persona, manejador);
+        Ana.nombre = "Ana";
+        Ana.apellido = "Manzana";
+        Ana.edad = 21;
+        Ana.numero = 3145678345;
+        console.log(Ana);
+
+        console.log(persona);
+
     </script>
 </body>
 
