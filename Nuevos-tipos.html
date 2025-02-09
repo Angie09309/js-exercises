@@ -265,7 +265,7 @@
         for (let y of gen) {
             console.log(y);
         }
-             */
+            
 
 
         const persona = {
@@ -299,7 +299,21 @@
         console.log(Ana);
 
         console.log(persona);
+ */
 
+
+        let aletorio = Math.round(Math.random() * 100 + 3)
+        const objUsuarios = {
+            propiedad: "Valor",
+            [`id_${aletorio}`]: "Valor Aleatorio"
+        };
+        console.log(objUsuarios);
+
+        const usuarios = ["Angie", "Daniel", "Lucas"]
+
+        usuarios.forEach((usuario, index) => objUsuarios[`id_${index}`] = usuario);
+
+        console.log(objUsuarios);
     </script>
 </body>
 
