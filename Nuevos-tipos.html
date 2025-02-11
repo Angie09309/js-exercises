@@ -314,7 +314,7 @@
         usuarios.forEach((usuario, index) => objUsuarios[`id_${index}`] = usuario);
 
         console.log(objUsuarios);
-         */
+        
 
         console.log(this);
         console.log(window);
@@ -363,11 +363,48 @@
             //    }
 
             return () => console.log(this.nombre);
-
         }
 
         let ana = new Persona("Ana")
         ana();
+         */
+
+
+
+        console.log(this);
+        this.lugar = "Contexto Global";
+
+        function saludar(saludo, aQuien) {
+            console.log(`${saludo} ${aQuien} desde el ${this.lugar}`);
+        }
+
+        saludar("Hola", "Lucas");
+
+        const obj = {
+            lugar: "Contexto Objeto"
+        }
+
+        saludar.call(obj, "Hola", "Angie");
+        saludar.call(null, "Hola", "Angie");
+        saludar.apply(obj, ["Adios", "Paola"]);
+
+        this.nombre = "Window";
+
+        const persona = {
+            nombre: "Angie",
+            saludar: function () {
+                console.log(`Hola ${this.nombre}`);
+            }
+        }
+
+        persona.saludar();
+
+        const otraPersona = {
+            saludar: persona.saludar.bind(this)
+        }
+
+        otraPersona.saludar();
+
     </script>
 </body>
 
