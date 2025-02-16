@@ -66,6 +66,7 @@ console.log($linkDOM.hasAttribute("data-id"));
 
 
 */
+// DOM: Estilos y Variables CSS 
 
 const $linkDOM = document.querySelector(".link-dom");
 console.log($linkDOM.style);
