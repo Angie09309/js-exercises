@@ -65,7 +65,7 @@ console.log($linkDOM.removeAttribute("data-id"));
 console.log($linkDOM.hasAttribute("data-id"));
 
 
-*/
+
 // DOM: Estilos y Variables CSS 
 
 const $linkDOM = document.querySelector(".link-dom");
@@ -108,3 +108,27 @@ $html.style.setProperty("--dark-color", "#000");
 varDarkColor = getComputedStyle($html).getPropertyValue("--dark-color");
 
 $body.style.setProperty("background-color", varDarkColor);
+
+*/
+
+
+//DOM: Clases CSS
+
+const $card = document.querySelector(".card");
+
+console.log($card);
+console.log($card.className);
+console.log($card.classList.contains("rotate-45"));
+$card.classList.add("rotate-45");
+console.log($card.classList.contains("rotate-45"));
+console.log($card.className);
+console.log($card.classList);
+$card.classList.remove("rotate-45");
+console.log($card.classList.contains("rotate-45"));
+$card.classList.toggle("rotate-45");
+console.log($card.classList.contains("rotate-45"));
+$card.classList.toggle("rotate-45");
+console.log($card.classList.contains("rotate-45"));
+$card.classList.toggle("rotate-45");
+$card.classList.replace("rotate-45","rotate-135");
+$card.classList.add("opacity-80","sepia");
