@@ -1,100 +1,104 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
+  </head>
 
-<style>
+  <style>
     :root {
-        --yellow-color: #F7DF1E;
-        --dark-color: #222;
+      --yellow-color: #f7df1e;
+      --dark-color: #222;
     }
 
     .cards {
-        border: thin solid var(--dark-color);
-        padding: 1rem;
+      border: thin solid var(--dark-color);
+      padding: 1rem;
     }
 
     .card {
-        display: inline-block;
-        background-color: var(--dark-color);
-        color: var(--yellow-color);
+      display: inline-block;
+      background-color: var(--dark-color);
+      color: var(--yellow-color);
     }
 
     .card figcaption {
-        padding: 1rem;
+      padding: 1rem;
     }
 
     .rotate-45 {
-        transform: rotate(45deg);
+      transform: rotate(45deg);
     }
 
     .rotate-135 {
-        transform: rotate(135deg);
+      transform: rotate(135deg);
     }
 
     .opacity-80 {
-        opacity: .8;
+      opacity: 0.8;
     }
 
     .sepia {
-        filter: sepia(1);
+      filter: sepia(1);
     }
-</style>
+  </style>
 
-<body>
+  <body>
     <h3>Manejo del DOM</h3>
     <p id="que-es">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis commodi aut earum quae et modi, facere
-        magnam amet sapiente quasi nisi blanditiis facilis porro, mollitia consequatur eius sed sunt asperiores.
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis
+      commodi aut earum quae et modi, facere magnam amet sapiente quasi nisi
+      blanditiis facilis porro, mollitia consequatur eius sed sunt asperiores.
     </p>
 
-
     <nav id="menu">
-        <ul>
-            <li><a href="#">Seccion 1</a></li>
-            <li><a href="#">Seccion 2</a></li>
-            <li><a href="#">Seccion 3</a></li>
-            <li><a href="#">Seccion 4</a></li>
-            <li><a href="#">Seccion 5</a></li>
-        </ul>
+      <ul>
+        <li><a href="#">Seccion 1</a></li>
+        <li><a href="#">Seccion 2</a></li>
+        <li><a href="#">Seccion 3</a></li>
+        <li><a href="#">Seccion 4</a></li>
+        <li><a href="#">Seccion 5</a></li>
+      </ul>
     </nav>
 
-    <input type="text" name="nombre" placeholder="Nombre">
-    <a class="link-dom" href="dom.html" style="background-color:#F7DF1E; color:#222; ;" data-id="1"
-        data-description="Document Object Model">DOM</a>
+    <input type="text" name="nombre" placeholder="Nombre" />
+    <a
+      class="link-dom"
+      href="dom.html"
+      style="background-color: #f7df1e; color: #222"
+      data-id="1"
+      data-description="Document Object Model"
+      >DOM</a
+    >
 
     <section class="cards">
-        <figura class="card">
-            <img src="https://picsum.photos/200/200?random=1" alt="Tech">
-            <figcaption>Tech</figcaption>
-        </figura>
+      <figure class="card">
+        <img src="https://picsum.photos/200/200?random=1" alt="Tech" />
+        <figcaption>Tech</figcaption>
+      </figure>
 
-        <figura class="card">
-            <img src="https://picsum.photos/200/200?random=2" alt=" Animals">
-            <figcaption>Animals</figcaption>
-        </figura>
+      <figure class="card">
+        <img src="https://picsum.photos/200/200?random=2" alt=" Animals" />
+        <figcaption>Animals</figcaption>
+      </figure>
 
-        <figura class="card">
-            <img src="https://picsum.photos/200/200?random=3" alt="People">
-            <figcaption>People</figcaption>
-        </figura>
+      <figure class="card">
+        <img src="https://picsum.photos/200/200?random=3" alt="People" />
+        <figcaption>People</figcaption>
+      </figure>
 
-        <figura class="card">
-            <img src="https://picsum.photos/200/200?random=4" alt="Arch">
-            <figcaption>Arch</figcaption>
-        </figura>
+      <figure class="card">
+        <img src="https://picsum.photos/200/200?random=4" alt="Arch" />
+        <figcaption>Arch</figcaption>
+      </figure>
 
-        <figura class="card">
-            <img src="https://picsum.photos/200/200?random=5" alt="Nature">
-            <figcaption>Nature</figcaption>
-        </figura>
+      <figure class="card">
+        <img src="https://picsum.photos/200/200?random=5" alt="Nature" />
+        <figcaption>Nature</figcaption>
+      </figure>
     </section>
 
     <script src="dom.js"></script>
-</body>
-
+  </body>
 </html>
