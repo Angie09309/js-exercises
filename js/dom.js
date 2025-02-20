@@ -175,7 +175,7 @@ console.log($cards.nextElementSibling);
 console.log($cards.closest("div"));
 console.log($cards.closest("body"));
 console.log($cards.children[3].closest("section"));
-*/
+
 
 
 // DOM: Creando Elementos y Fragmentos
@@ -251,3 +251,46 @@ meses.forEach((el) => {
 document.write("<h3>Meses del Año</h3>");
 document.body.appendChild($fragment);
 document.body.appendChild($ul3);
+
+
+*/
+//DOM: Templates HTML
+const $cards = document.querySelector(".cards"),
+  $template = document.getElementById("template-card").content,
+  $fragment = document.createDocumentFragment(),
+  cardContent = [
+    {
+      title: "Imagen 1",
+      img: "https://picsum.photos/200/200?random=6",
+    },
+
+    {
+      title: "Imagen 2",
+      img: "https://picsum.photos/200/200?random=7",
+    },
+
+    {
+      title: "Imagen 3",
+      img: "https://picsum.photos/200/200?random=8",
+    },
+
+    {
+      title: "Imagen 4",
+      img: "https://picsum.photos/200/200?random=9",
+    },
+    {
+      title: "Imagen 5",
+      img: "https://picsum.photos/200/200?random=10",
+    },
+  ];
+
+cardContent.forEach((el) => {
+  $template.querySelector("img").setAttribute("src", el.img);
+  $template.querySelector("img").setAttribute("alt", el.title);
+  $template.querySelector("figcaption").textContent = el.title;
+
+  let $clone = document.importNode($template, true);
+  $fragment.appendChild($clone);
+});
+
+$cards.appendChild($fragment);
