@@ -295,7 +295,7 @@ cardContent.forEach((el) => {
 
 $cards.appendChild($fragment);
 
-*/
+
 
 //DOM: Modificando Elementos
 const $cards = document.querySelector(".cards"),
@@ -315,3 +315,61 @@ $newCard.classList.add("card");
 //$cards.removeChild($cards.lastElementChild);
 
 document.body.appendChild($cloneCards);
+*/
+
+/* 
+.insertAdjacent...
+    .insertAdjacentElement(position,el)
+    .insertAdjacentHTML(position,html)
+    .insertAdjacentText(position,text)
+
+posiciones:
+    beforebegin (hermano anterior)
+    afterbegin (primer hijo)
+    beforeend (ultimo hijo)
+    afterend  (hermano siguiente)
+
+
+const $cards = document.querySelector(".cards"),
+  $newCard = document.createElement("figure");
+
+let $contenCard = `
+ <img src="https://picsum.photos/200/200?random=6" alt="Nature"/>
+ <figcaption></figcaption>
+`;
+
+$newCard.classList.add("card");
+
+$newCard.insertAdjacentHTML("beforeend", $contenCard);
+$newCard.querySelector("figcaption").insertAdjacentText("afterbegin","random")
+// $cards.insertAdjacentElement("afterbegin", $newCard);
+
+//$cards.prepend($newCard);
+//$cards.before($newCard);
+//$cards.append($newCard);
+//$cards.after($newCard);
+
+*/
+
+function holaMundo(e) {
+  alert("Hola Mundo");
+  console.log(e);
+}
+
+const $eventoSemantico = document.getElementById("evento-semantico");
+
+const $eventoMultiple = document.getElementById("evento-multiple");
+
+$eventoSemantico.onclick = holaMundo;
+$eventoSemantico.onclick = function (e) {
+  alert("Hola Manejador de eventos Semantico");
+  console.log(e);
+};
+
+$eventoMultiple.addEventListener("click", holaMundo);
+$eventoMultiple.addEventListener("click", (e) => {
+  alert("Hola Manejador de eventos Multiple");
+  console.log(e);
+  console.log(e.type);
+  console.log(e.target);
+});
