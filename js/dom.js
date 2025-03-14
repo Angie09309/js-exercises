@@ -356,9 +356,14 @@ function holaMundo(e) {
   console.log(e);
 }
 
-const $eventoSemantico = document.getElementById("evento-semantico");
+function saludar(nombre = "Desconocid@") {
+  alert(`Hola ${nombre}`);
+  console.log(event);
+}
 
-const $eventoMultiple = document.getElementById("evento-multiple");
+const $eventoSemantico = document.getElementById("evento-semantico"),
+  $eventoMultiple = document.getElementById("evento-multiple"),
+  $eventoRemover = document.getElementById("evento-remover");
 
 $eventoSemantico.onclick = holaMundo;
 $eventoSemantico.onclick = function (e) {
@@ -373,3 +378,17 @@ $eventoMultiple.addEventListener("click", (e) => {
   console.log(e.type);
   console.log(e.target);
 });
+
+$eventoMultiple.addEventListener("click", () => {
+  saludar();
+  saludar("Anna");
+});
+
+const removerDobleClick = (e) => {
+  alert(`Removiendo el evento tipo ${e.type}`);
+  console.log(e);
+  $eventoRemover.removeEventListener("dblclick", removerDobleClick);
+  $eventoRemover.disabled = true;
+};
+
+$eventoRemover.addEventListener("dblclick", removerDobleClick);
